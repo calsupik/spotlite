@@ -1,0 +1,89 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-mauron85-background-geolocation": {
+            "ALWAYS_USAGE_DESCRIPTION": "This app requires background location tracking",
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.innoficonsulting.nexmove"
+        }
+    }
+}
