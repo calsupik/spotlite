@@ -1,9 +1,9 @@
 /* Custom JavaScript */
 
 //Database Location
-var databaseString = 'https://nexmove.herokuapp.com/getlocations';
+var databaseString = 'https://spotlite.herokuapp.com/getlocations';
 
-var urlString = 'https://nexmove.herokuapp.com/';
+var urlString = 'https://spotlite.herokuapp.com/';
 
 //Locations Array
 var locations = [];	

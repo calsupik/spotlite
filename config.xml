@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.innoficonsulting.nexmove" version="1.0.0">
-    <name>NexMove</name>
+<widget id="com.innoficonsulting.spotlite" version="1.0.0">
+    <name>SpotLite</name>
     <description>
-        NexMove Application
+        SpotLite Application
     </description>
-    <author email="support@nexmove.com" href="http://www.nexmove.com">
-        NexMove Team
+    <author email="support@spotlite.com" href="http://www.spotlite.com">
+        SpotLite Team
     </author>
     <content src="index.html" />
     <preference name="BackupWebStorage" value="local" />

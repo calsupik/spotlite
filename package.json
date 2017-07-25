@@ -1,10 +1,10 @@
 {
-  "name": "nexmove",
+  "name": "spotlite",
   "version": "1.0.0",
-  "description": "NexMove Mobile Application built with PhoneGap",
+  "description": "SpotLite Mobile Application built with PhoneGap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/calsupik/nexmove"
+    "url": "https://github.com/calsupik/spotlite"
   },
   "author": "Cal Supik",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "ecosystem:cordova"
   ],
   "bugs": {
-    "url": "https://github.com/calsupik/nexmove/issues"
+    "url": "https://github.com/calsupik/spotlite/issues"
   },
-  "homepage": "https://github.com/calsupik/nexmove"
+  "homepage": "https://github.com/calsupik/spotlite"
 }

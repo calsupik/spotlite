@@ -1,6 +1,6 @@
 {
-  "name": "NexMove",
-  "description": "This is a basic PhoneGap application built to run in iOS.",
-  "repository": "https://github.com/calsupik/nexmove",
+  "name": "SpotLite",
+  "description": "This is a PhoneGap application built to run in iOS.",
+  "repository": "https://github.com/calsupik/spotlite",
   "addons": []
 }

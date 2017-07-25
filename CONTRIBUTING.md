@@ -1,6 +1,6 @@
 ## Contributing
 
-Thank you for your interest in contributing to the NexMove Phonegap Mobile Application.
+Thank you for your interest in contributing to the SpotLite Phonegap Mobile Application.
 
 #### Issues
 
@@ -18,5 +18,5 @@ All contributions (feature or bug fix) should start with an issue first.
 - Open a [Pull Request][pull-request]
 
 
-[issue-tracker]: https://github.com/calsupik/nexmove/issues
-[pull-request]: https://github.com/calsupik/nexmove/pulls
+[issue-tracker]: https://github.com/calsupik/spotlite/issues
+[pull-request]: https://github.com/calsupik/spotlite/pulls

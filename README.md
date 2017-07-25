@@ -1,3 +1,3 @@
-# NexMove PhoneGap Application
+# SpotLite PhoneGap Application
 
-This is a basic PhoneGap application built to run in iOS.
+This is a PhoneGap application built to run in iOS.

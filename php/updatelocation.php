@@ -23,7 +23,7 @@
     	die(json_encode("Connection failed: " . mysqli_connect_error()));
 	}
 
-	$query = "UPDATE  `NexMove`.`Locations` SET "; 
+	$query = "UPDATE  `SpotLite`.`Locations` SET "; 
 	
 	if ($title != NULL){
 		$query = $query."'Title' = '".$title."', "; 
