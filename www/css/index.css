@@ -10,9 +10,9 @@ html{
 }
 
 .navbar-fixed-top {
-	background-image: -webkit-linear-gradient(left, #E86124 0%, #F89B3B 100%);
-	background-image: -o-linear-gradient(left, #E86124 0%, #F89B3B 100%);
-	background-image: linear-gradient(to right, #E86124 0%, #F89B3B 100%);
+	background-image: -webkit-linear-gradient(left, #1D1D3F 0%, #1D1D3F 100%);
+	background-image: -o-linear-gradient(left, #1D1D3F 0%, #1D1D3F 100%);
+	background-image: linear-gradient(to right, #1D1D3F 0%, #1D1D3F 100%);
 }
 
 .logo {
@@ -34,21 +34,21 @@ html{
 
 .display > li.active > a{
 	color: white;
-  	background-color: #696BAE;
+  	background-color: #1D1D3F;
 }
 
 .display > li > a {
-	color: gray;
+	color: #BFBEBE;
 	background-color: white;
 }
 
 .category > li.active > a{
-	color: #F89B3B;
+	color: #1D1D3F;
   	background-color: white;
 }
 
 .category > li > a {
-	color: gray;
+	color: #BFBEBE;
 	background-color: white;
 }
 
@@ -114,7 +114,7 @@ h1 {
 }
 
 .event.listening {
-    background-color:#333333;
+    background-color:#1D1D3F;
     display:block;
 }
 
