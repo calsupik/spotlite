@@ -1,9 +1,9 @@
 /* Custom JavaScript */
 
 //Database Location
-var databaseString = 'https://spotlite.herokuapp.com/getlocations';
+var databaseString = 'https://spot-lite.herokuapp.com/getlocations';
 
-var urlString = 'https://spotlite.herokuapp.com/';
+var urlString = 'https://spot-lite.herokuapp.com/';
 
 //Locations Array
 var locations = [];	
