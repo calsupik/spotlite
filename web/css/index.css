@@ -220,8 +220,8 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-default .navbar-brand .navbar-logo {
-    width: 1em;
-    height: 1em;
+    width: 1.5em;
+    height: 1.5em;
     margin-right: .1em;
     display: inline
 }
@@ -311,8 +311,8 @@ fieldset[disabled] .btn-xl:hover {
     }
 
     .navbar-default.navbar-shrink .navbar-brand .navbar-logo {
-        -webkit-filter: brightness(80%);
-        filter: brightness(80%)
+        /* -webkit-filter: brightness(80%); */
+        /* filter: brightness(80%) */
     }
 
     .navbar-default .nav li a {
