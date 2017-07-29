@@ -38,20 +38,6 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
-// 'db' route
-$app->get('/db/', function() use($app) {
-  $st = $app['pdo']->prepare('SELECT name FROM test_table');
-  $st->execute();
-
-  $names = array();
-  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
-    $names[] = $row;
-  }
-
-  return json_encode($names);
-});
-
 // 'getlocations' route
 $app->get('/getlocations/', function() use($app) {
  
