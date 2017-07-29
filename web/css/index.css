@@ -934,5 +934,6 @@ footer ul.quicklinks {
 
 footer .coincentrix {
     height: 3em;
-    width: 10em;
+    width: 9em;
+    padding: 5px;
 }
