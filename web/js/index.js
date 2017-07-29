@@ -254,7 +254,7 @@ var app = {
 		jQuery.ajax({
 			url: databaseString,
 			type: 'GET',
-			data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
+			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
 			dataType: 'json',
 			async: false,				
 			success: function(json) {
