@@ -220,8 +220,8 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-default .navbar-brand .navbar-logo {
-    width: 2em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
     margin-right: .1em;
     display: inline
 }
