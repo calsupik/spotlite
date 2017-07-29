@@ -249,12 +249,13 @@ var app = {
 		
 		var currentLat = currentLocation.getCenter().lat();
 		var currentLng = currentLocation.getCenter().lng();
+		var distance = 100000;
 		
 		jQuery.ajax({
 			url: databaseString,
 			type: 'GET',
-			//data: {lat:currentLat,lng:currentLng,category:category},
-			//dataType: 'json',
+			data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
+			dataType: 'json',
 			async: false,				
 			success: function(json) {
 				var locations = JSON.parse(json)
