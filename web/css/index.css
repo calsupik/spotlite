@@ -695,7 +695,7 @@ aside.clients img {
 
 section#contact {
     background-color: #222;
-    background-image: url(../img/map-image.jpg);
+    background-image: url(../images/map-image.jpg);
     background-position: center;
     background-repeat: no-repeat
 }
@@ -868,7 +868,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 header {
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url(../images/btc-ltc-logo.png);
     background-position: 60% center;
     background-repeat: none;
     background-size: cover;
