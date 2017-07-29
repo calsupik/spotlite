@@ -60,6 +60,7 @@ $app->get('/getlocations/', function() use($app) {
 	$category = $_POST['category'];
   $distance = $_POST['distance'];
 
+  /*
   $query = ''
   if(($lat != NULL) && ($lng != NULL)){
 		$query .= "SELECT * , SQRT( POW( 69.1 * ( Latitude - ".$lat.") , 2 ) + POW( 69.1 * (".$lng." - Longitude ) * COS( Latitude / 57.3 ) , 2 ) ) AS Distance FROM Locations";
@@ -78,6 +79,7 @@ $app->get('/getlocations/', function() use($app) {
 		}
 		
 	}	
+  */
 
   $st = $app['pdo']->prepare('SELECT * FROM locations');
   $st->execute();
