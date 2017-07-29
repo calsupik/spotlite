@@ -1,57 +1,263 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/images/lang-logo.png">
-    </a>
-    <h1>Getting Started with PHP on Heroku</h1>
-    <p>This is a sample PHP application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-php"><span class="glyphicon glyphicon-flash"></span> Getting Started with PHP</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/php-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-php" class="alert-link">Getting Started with PHP on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/php-getting-started">Heroku Button</a> on the repository.</li>
 
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/php-getting-started/blob/master/composer.json">composer.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
+<header>
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-heading">Global Decentralized Currency</div>
+        <div class="intro-lead-in">Based on Blockchain Technology</div>
+        <a href="#download" id="heroDownload" class="text-left page-scroll btn btn-hero btn-xl btn-spacer">
+            <i class="fa fa-group  if-os-known distro-graphic "></i>
+            Download
+            <div class="btn-small detect" data-windows="Litecoin Core 0.13.2<br /> for Windows" data-mac="Litecoin Core 0.13.2<br /> for Mac OS X" data-linux="Litecoin Core 0.13.2<br /> for Linux" data-android="<br /> Litecoin for Android" data-dl-windows="https://download.litecoin.org/litecoin-0.13.2/win/litecoin-0.13.2-win64-setup.exe" data-dl-mac="https://download.litecoin.org/litecoin-0.13.2/osx/litecoin-0.13.2-osx.dmg" data-dl-linux="https://download.litecoin.org/litecoin-0.13.2/linux/litecoin-0.13.2-x86_64-linux-gnu.tar.gz" data-dl-android="https://litecointalk.org/index.php?topic=12196.0"></div>
+          </a>
+        <p>
+          <a href="#download" class="page-scroll heroGpg" data-dl-windows="https://download.litecoin.org/litecoin-0.13.2/win/litecoin-0.13.2-win-signatures.asc"
+            data-dl-mac="https://download.litecoin.org/litecoin-0.13.2/osx/litecoin-0.13.2-osx.dmg.asc" data-dl-linux="https://download.litecoin.org/litecoin-0.13.2/linux/litecoin-0.13.2-linux-signatures.asc">GPG Signatures</a>          |
+          <a href="#download" class="page-scroll  ">Other Versions</a>
+        </p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/php-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd php-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-php#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-php">Deploying PHP Apps on Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+  </header>
 
+  <section id="about">
+    <div class="container spacer">
+      <div class="row">
+        <div class="col-lg-12 ">
+          <h2 class="section-heading text-center">What is Litecoin?</h2>
+          <p class="large text-muted">Litecoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world.
+            Litecoin is an open source, global payment network that is fully decentralized without any central authorities.
+            Mathematics secures the network and empowers individuals to control their own finances. Litecoin features faster
+            transaction confirmation times and improved storage efficiency than the leading math-based currency. With substantial
+            industry support, trade volume and liquidity, Litecoin is a proven medium of commerce complementary to Bitcoin.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-4 text-center">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary "></i>
+              <i class="fa fa-group fa-stack-1x fa-inverse"></i>
+            </span>
+          <h4 class="service-heading">Community</h4>
+          <p class="text-muted text-left">
+            <p class="text-no-margin text-left text-muted">Find support across a growing number of Litecoin communities:</p>
+            <ul class="text-muted text-left ">
+              <li><a href="https://litecointalk.io">Litecoin Forums</a></li>
+              <li><a href="https://web.telegram.org/#/im?p=@Litecoin">Litecoin Telegram</a></li>
+              <li><a href="http://www.reddit.com/r/litecoin">Reddit Litecoin</a></li>
+              <li><a href="https://twitter.com/search?q=litecoin%20-bitcoin&amp;src=typd">Search for Users on Twitter</a></li>
+              <li><a href="http://freenode.net/" rel="nofollow">IRC FreeNode</a> network channels
+                <a href="http://webchat.freenode.net/?channels=litecoin" rel="nofollow">#litecoin</a> (for general users)
+                and
+                <a href="http://webchat.freenode.net/?channels=litecoin-dev" rel="nofollow">#litecoin-dev</a> (for developers).
+              </li>
+            </ul>
+          </p>
+        </div>
+        <div class="col-md-4 text-center">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary "></i>
+              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+          <h4 class="service-heading">Resources</h4>
+          <p class="text-muted text-left">Find general information as well as a list of services and exchanges that support Litecoin at the <a href="http://litecoin.info">Litecoin Wiki</a>.
+            <br> Up-to-date network statistics can be found at <a href="http://ltc.block-explorer.com/charts">Litecoin Block Explorer Charts</a>.
+            <br> Source code for Litecoin Core and related projects are available on <a href="https://github.com/litecoin-project">GitHub</a>.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary "></i>
+              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+            </span>
+          <h4 class="service-heading">Open Source Software</h4>
+          <p class="text-muted text-left">Litecoin is an open source software project released under the MIT/X11 license which gives you the power to run,
+            modify, and copy the software and to distribute, at your option, modified copies of the software. The software
+            is released in a transparent process that allows for independent verification of binaries and their corresponding
+            source code.</p>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-md-4 text-center">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary "></i>
+              <i class="fa fa-link fa-stack-1x fa-inverse"></i>
+            </span>
+          <h4 class="service-heading">Blockchain</h4>
+          <p class="text-muted text-left">The Litecoin blockchain is capable of handling higher transaction volume than its counterpart - Bitcoin. Due to
+            more frequent block generation, the network supports more transactions without a need to modify the software
+            in the future. <br/>As a result, merchants get faster confirmation times, while still having ability to wait
+            for more confirmations when selling bigger ticket items.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary "></i>
+              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+            </span>
+          <h4 class="service-heading">Wallet Encryption</h4>
+          <p class="text-muted text-left">Wallet encryption allows you to secure your wallet, so that you can view transactions and your account balance,
+            but are required to enter your password before spending litecoins. <br/>This provides protection from wallet-stealing
+            viruses and trojans as well as a sanity check before sending payments.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary "></i>
+              <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+            </span>
+          <h4 class="service-heading">Mining Reward</h4>
+          <p class="text-muted text-left">Miners are currently awarded with 25 new litecoins per block, an amount which gets halved roughly every 4 years
+            (every 840,000 blocks). <br/>The Litecoin network is therefore scheduled to produce 84 million litecoins, which
+            is 4 times as many currency units as Bitcoin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="bg-light-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Download</h2>
+          <h3 class="section-subheading text-muted"><a href='http://blog.litecoin.org/2017/01/litecoin-core-v0132_11.html'>Release Notes</a> | <a href='https://litecoin.info/Upgrading_Litecoin'>Upgrade Notes</a></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 btn-spacer ">
+          <a href="https://download.litecoin.org/litecoin-0.13.2/win/litecoin-0.13.2-win64-setup.exe" class="page-scroll btn btn-xl btn-wide text-left" style="color:white">
+            <i class="fa fa-group fa-windows distro-graphic"></i>
+            <div>
+              Download
+            </div>
+            <div class="btn-small">Litecoin Core 0.13.2</div>
+            <div class="btn-small">
+              for Windows
+            </div>
+          </a>
+          <div>
+            <a href="https://download.litecoin.org/litecoin-0.13.2/win/litecoin-0.13.2-win-signatures.asc">GPG Signatures</a>            | <a href="https://download.litecoin.org/litecoin-0.13.2/win/litecoin-0.13.2-win32-setup.exe">32bit</a> |
+            <a href="https://download.litecoin.org/litecoin-0.13.2/win/litecoin-0.13.2-win64-setup.exe">64bit</a> &nbsp;
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 btn-spacer ">
+          <a href="https://download.litecoin.org/litecoin-0.13.2/osx/litecoin-0.13.2-osx.dmg" class="page-scroll btn btn-xl btn-wide text-left" style="color:white">
+            <i class="fa fa-group fa-apple distro-graphic"></i>
+            <div>
+              Download
+            </div>
+            <div class="btn-small">Litecoin Core 0.13.2</div>
+            <div class="btn-small">
+              for Mac OS X
+            </div>
+          </a>
+          <div>
+            <a href="https://download.litecoin.org/litecoin-0.13.2/osx/litecoin-0.13.2-osx.dmg.asc">GPG Signatures</a> &nbsp;
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 btn-spacer ">
+          <a href="https://download.litecoin.org/litecoin-0.13.2/linux/litecoin-0.13.2-x86_64-linux-gnu.tar.gz" class="page-scroll btn btn-xl btn-wide text-left" style="color:white">
+            <i class="fa fa-group fa-linux distro-graphic"></i>
+            <div>
+              Download
+            </div>
+            <div class="btn-small">Litecoin Core 0.13.2</div>
+            <div class="btn-small">
+              for Linux
+            </div>
+          </a>
+          <div>
+            <a href="https://download.litecoin.org/litecoin-0.13.2/linux/litecoin-0.13.2-linux-signatures.asc">GPG Signatures</a>            | <a href="https://download.litecoin.org/litecoin-0.13.2/linux/litecoin-0.13.2-i686-pc-linux-gnu.tar.gz">32bit</a>            |
+            <a href="https://download.litecoin.org/litecoin-0.13.2/linux/litecoin-0.13.2-x86_64-linux-gnu.tar.gz">64bit</a>            &nbsp;
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 btn-spacer ">
+          <a href="https://litecointalk.org/index.php?topic=12196.0" class="page-scroll btn btn-xl btn-wide text-left" style="color:white">
+            <i class="fa fa-group fa-android distro-graphic"></i>
+            <div>
+              Download
+            </div>
+            <div class="btn-small"></div>
+            <div class="btn-small">
+              Litecoin for Android<br/>Litecoin for Blackberry
+            </div>
+          </a>
+          <div>
+            &nbsp;
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 btn-spacer ">
+          <a href="https://electrum-ltc.org/" class="page-scroll btn btn-xl btn-wide text-left" style="color:white">
+            <i class="fa fa-group fa-fdas distro-graphic"></i>
+            <div>
+              Download
+            </div>
+            <div class="btn-small">Electrum Litecoin</div>
+            <div class="btn-small">
+            </div>
+          </a>
+          <div>
+            &nbsp;
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 btn-spacer ">
+          <a href="https://github.com/litecoin-project/litecoin" class="page-scroll btn btn-xl btn-wide text-left" style="color:white">
+            <i class="fa fa-group fa-github-alt distro-graphic"></i>
+            <div>
+              Source
+            </div>
+            <div class="btn-small">Litecoin Core Github<br/>Android Github</div>
+            <div class="btn-small">
+            </div>
+          </a>
+          <div>
+            <a href="https://pgp.mit.edu/pks/lookup?op=get&amp;search=0xFE3348877809386C">GPG Public Key</a> &nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Contact us</h2>
+          <p class="large text-bright">You can contact Litecoin project development team at <a href="/cdn-cgi/l/email-protection#d5b6babba1b4b6a195b9bca1b0b6babcbbfbbaa7b2"><span class="__cf_email__" data-cfemail="0a6965647e6b697e4a66637e6f696563642465786d">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function (t, e, r, n, c, a, p) { try { t = document.currentScript || function () { for (t = document.getElementsByTagName('script'), e = t.length; e--;)if (t[e].getAttribute('data-cfhash')) return t[e] }(); if (t && (c = t.previousSibling)) { p = t.parentNode; if (a = c.getAttribute('data-cfemail')) { for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2)e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2); p.replaceChild(document.createTextNode(decodeURIComponent(e)), c) } p.removeChild(t) } } catch (u) { } }()/* ]]> */</script></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ">
+          <span class="copyright">Copyright &copy; 2011-2016 Litecoin Project. All rights reserved.</span>
+        </div>
+        <div class="col-md-12">
+          <ul class="list-inline social-buttons ">
+            <li class=""><a href="https://twitter.com/LitecoinProject"><i class="fa fa-twitter"></i></a></li>
+            <li class=""><a href="https://web.telegram.org/#/im?p=@Litecoin"><i class="fa fa-send"></i></a></li>
+            <li class=""><a href="https://www.reddit.com/r/litecoin/"><i class="fa fa-reddit-alien"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://litecoin.org/js/jquery.js"></script>
+
+  <script src="https://litecoin.org/js/bootstrap.min.js"></script>
+
+  <script src="https://litecoin.org/js/jquery.easing.min.js"></script>
+  <script src="https://litecoin.org/js/jquery.browser.min.js"></script>
+  <script src="https://litecoin.org/js/classie.js"></script>
+  <script src="https://litecoin.org/js/cbpAnimatedHeader.js"></script>
+
+  <script src="https://litecoin.org/js/agency.js"></script>
+  <script>
+    /* <![CDATA[ */(function (d, s, a, i, j, r, l, m, t) { try { l = d.getElementsByTagName('a'); t = d.createElement('textarea'); for (i = 0; l.length - i; i++) { try { a = l[i].href; s = a.indexOf('/cdn-cgi/l/email-protection'); m = a.length; if (a && s > -1 && m > 28) { j = 28 + s; s = ''; if (j < m) { r = '0x' + a.substr(j, 2) | 0; for (j += 2; j < m && a.charAt(j) != 'X'; j += 2)s += '%' + ('0' + ('0x' + a.substr(j, 2) ^ r).toString(16)).slice(-2); j++; s = decodeURIComponent(s) + a.substr(j, m - j) } t.innerHTML = s.replace(/</g, '&lt;').replace(/\>/g, '&gt;'); l[i].href = 'mailto:' + t.value } } catch (e) { } } } catch (e) { } })(document);/* ]]> */
+  </script>
+  
 {% endblock %}
