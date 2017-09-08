@@ -286,17 +286,20 @@ var app = {
 			list+= 
 			
 			'<div class="col-md-4 col-sm-6 locations-item text-center">'+
+				
 				'<a id="location'+json[i].id+'" href="#locationDetail'+i+'" class="locations-link" data-toggle="modal">'+
+					/*
 					'<div class="locations-hover">'+
 						'<div class="locations-hover-content">'+
 						'</div>'+
 					'</div>'+
 					'<img src="'+urlString+'img/'+json[i].img+'"  class="img-responsive img-rounded" alt="">'+
+					*/
+					'<div class="locations-caption">'+
+						'<h4>'+json[i].name+'</h4>'+
+						'<p class="text-muted">'+json[i].short_desc+'</p>'+
+					'</div>'+
 				'</a>'+
-				'<div class="locations-caption">'+
-					'<h4>'+json[i].name+'</h4>'+
-					'<p class="text-muted">'+json[i].short_desc+'</p>'+
-				'</div>'+
 			'</div>';
 			
 			//Creates Location Details Popup Modal
