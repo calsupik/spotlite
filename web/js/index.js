@@ -321,7 +321,7 @@ var app = {
 										'<div class="modal-body">'+
 											'<h2>'+json[i].name+'</h2>'+
 											'<p class="item-intro text-muted">'+json[i].short_desc+'</p>'+
-											'<img class="img-responsive" src="'+urlString+'img/'+json[i].img+'" alt="">'+
+											//'<img class="img-responsive" src="'+urlString+'img/'+json[i].img+'" alt="">'+
 											'</br>'+
 											'<p>'+json[i].long_desc+'</p>'+
 											'<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Details</button>'+
@@ -355,7 +355,7 @@ var app = {
 										'<div class="modal-body">'+
 											'<h2>'+json[i].name+'</h2>'+
 											'<p class="item-intro text-muted">'+json[i].short_desc+'</p>'+
-											'<img class="img-responsive" src="'+urlString+'img/'+json[i].img+'" alt="">'+
+											//'<img class="img-responsive" src="'+urlString+'img/'+json[i].img+'" alt="">'+
 											'</br>'+
 											'<p>'+json[i].deal+'</p>'+
 											'</br>'+

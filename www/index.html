@@ -21,7 +21,6 @@
 
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap-drawer.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 
 		<!-- Custom CSS -->	
@@ -29,34 +28,7 @@
 	
 	</head>
 
-	<body class="has-drawer">
-    	
-    	<!-- User Drawer
-		<div id="userDrawer" class="drawer drawer-right dw-xs-8 dw-sm-8 dw-md-8 dw-lg-8 fold" aria-labelledby="drawerExample" style="border:0px;">	
-			<div class="drawer-controls">
-				<a href="#userDrawer" data-toggle="drawer" aria-foldedopen="false" aria-controls="userDrawer" class="btn btn-primary btn-md" style="background:none;border:0px;color:white">
-					<i class="fa fa-align-justify"></i>
-				</a>
-			</div>
-			<div class="drawer-contents" style="background-color:#696BAE;text-align:center;">
-				<div class="drawer-body">
-					<img class="img img-circle" height="100px" width="100px" src="img/profile.jpg"/>
-				</div>
-				<ul class="drawer-fullnav">
-					<li class="active"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-					<li><a style="color:white" href="#"><i class="fa fa-flag"></i> Notifications</a></li>
-					<li><a style="color:white" href="#"><i class="fa fa-check"></i> Check In's</a></li>
-					<li><a style="color:white" href="#"><i class="fa fa-user"></i> Profile</a></li>
-					<li><a style="color:white" href="#"><i class="fa fa-comments"></i> Messages</a></li>
-					<li><a style="color:white" href="#"><i class="fa fa-cog"></i> Settings</a></li>
-					<li><a style="color:white" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-				</ul>
-				<div class="drawer-footer">
-					<small style="color:white">&copy; SpotLite</small>
-				</div>
-			</div>
-		</div>
-		-->
+	<body>
 		
 		<!-- Top nav bar -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -109,11 +81,10 @@
 		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 		
 			<ul class="nav category" style="white-space:nowrap;">
-				<li style="display:inline-block;width:20%;text-align:center" class="active"><a onclick="app.filter(null);"><i class="fa fa-globe fa-lg"></i></a>
-				<li style="display:inline-block;width:20%;text-align:center"><a onclick="app.filter('Bar');"><i class="fa fa-beer fa-lg"></i></a>
-				<li style="display:inline-block;width:20%;text-align:center"><a onclick="app.filter('Restaurant');"><i class="fa fa-cutlery fa-lg"></i></a>
-				<li style="display:inline-block;width:20%;text-align:center"><a onclick="app.filter('Club');"><i class="fa fa-glass fa-lg"></i></a>
-				<li style="display:inline-block;width:20%;text-align:center"><a onclick="app.filter('Hotel');"><i class="fa fa-bed fa-lg"></i></a>
+				<li style="display:inline-block;width:25%;text-align:center" class="active"><a onclick="app.filter(null);"><i class="fa fa-globe fa-lg"></i></a>
+				<li style="display:inline-block;width:25%;text-align:center"><a onclick="app.filter('Litecoin');"><img style="height:12px;width:12px;" src="img/litecoin.png"></img></a>
+				<li style="display:inline-block;width:25%;text-align:center"><a onclick="app.filter('Bitcoin');"><img style="height:18px;width:18px;" src="img/bitcoin.png"></img></a>
+				<li style="display:inline-block;width:25%;text-align:center"><a onclick="app.filter('Ethereum');"><img style="height:14px;width:14px;" src="img/ethereum.png"></img></a>
 			</ul>		
 		
 		</nav>
