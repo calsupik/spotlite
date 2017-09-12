@@ -9,15 +9,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
-        "id": "cordova-plugin-background-mode.BackgroundMode",
-        "pluginId": "cordova-plugin-background-mode",
-        "clobbers": [
-            "cordova.plugins.backgroundMode",
-            "plugin.backgroundMode"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-battery-status/www/battery.js",
         "id": "cordova-plugin-battery-status.battery",
         "pluginId": "cordova-plugin-battery-status",
@@ -456,14 +447,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/backgroundGeolocation.js",
-        "id": "cordova-plugin-mauron85-background-geolocation.backgroundGeolocation",
-        "pluginId": "cordova-plugin-mauron85-background-geolocation",
-        "clobbers": [
-            "backgroundGeolocation"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-media/www/MediaError.js",
         "id": "cordova-plugin-media.MediaError",
         "pluginId": "cordova-plugin-media",
@@ -610,7 +593,6 @@ module.exports.metadata =
 {
     "cordova-plugin-app-event": "1.2.0",
     "cordova-plugin-device": "1.1.2",
-    "cordova-plugin-background-mode": "0.6.5",
     "cordova-plugin-battery-status": "1.1.2",
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-compat": "1.0.0",
@@ -624,7 +606,6 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "2.1.0",
     "cordova-plugin-globalization": "1.0.3",
     "cordova-plugin-inappbrowser": "1.3.0",
-    "cordova-plugin-mauron85-background-geolocation": "2.2.0-alpha.6",
     "cordova-plugin-media": "2.2.0",
     "cordova-plugin-media-capture": "1.2.0",
     "cordova-plugin-network-information": "1.2.1",
