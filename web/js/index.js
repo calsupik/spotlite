@@ -490,3 +490,4 @@ var app = {
 };
 
 app.initialize();
+app.filter(null);
