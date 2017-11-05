@@ -25,9 +25,6 @@ var app = {
 
     //Application Constructor
     initialize: function() {
-
-		console.log('Initialize');
-
         this.bindEvents();
     },
     
@@ -46,9 +43,6 @@ var app = {
     
     //Function Run on Device Ready
     recievedEvent: function(id) {
-
-        console.log('Received Event: ' + id);
-        
         if(id == 'deviceready'){
         	app.deviceReady();
         }
@@ -244,7 +238,7 @@ var app = {
 
 	//onError Callback receives a PositionError object
 	onError: function(error) {
-		console.log('Location Error. Error Code: ' + error.code + '. Error Message: ' + error.message);
+		//console.log('Location Error. Error Code: ' + error.code + '. Error Message: ' + error.message);
 	},
 	
 	//Gets Nearby Locations from Database
@@ -265,7 +259,7 @@ var app = {
 				app.loadLocations(locations);
 			},
 			error: function(){
-				console.log("AJAX Error Getting Locations");
+				//console.log("AJAX Error Getting Locations");
 			}
 		});		
 		
@@ -494,3 +488,5 @@ var app = {
 	}
 	
 };
+
+app.initialize();
