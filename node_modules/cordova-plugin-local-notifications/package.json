@@ -1,0 +1,71 @@
+{
+  "_from": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
+  "_id": "cordova-plugin-local-notifications@0.9.0-beta.0",
+  "_inBundle": false,
+  "_integrity": "sha1-fRoaD1SEBLi3FhrQheJK7I+jMBw=",
+  "_location": "/cordova-plugin-local-notifications",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/katzer/cordova-plugin-local-notifications",
+    "rawSpec": "https://github.com/katzer/cordova-plugin-local-notifications",
+    "saveSpec": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
+    "fetchSpec": "https://github.com/katzer/cordova-plugin-local-notifications.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/katzer/cordova-plugin-local-notifications.git#e134975cee40b006d2fb65cbafa5ae8dd832d15a",
+  "_spec": "https://github.com/katzer/cordova-plugin-local-notifications",
+  "_where": "/Users/calsupik/Documents/Repos/spotlite",
+  "author": {
+    "name": "Sebastián Katzer"
+  },
+  "bugs": {
+    "url": "https://github.com/katzer/cordova-plugin-local-notifications/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-local-notifications",
+    "platforms": [
+      "ios",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Schedules and queries for local notifications",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.6.0"
+    },
+    {
+      "name": "cordova-windows",
+      "version": ">=4.2.0"
+    },
+    {
+      "name": "apple-ios",
+      "version": ">=10.0.0"
+    }
+  ],
+  "homepage": "https://github.com/katzer/cordova-plugin-local-notifications#readme",
+  "keywords": [
+    "appplant",
+    "notification",
+    "local notification",
+    "user notification",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-windows"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-local-notifications",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katzer/cordova-plugin-local-notifications.git#x"
+  },
+  "version": "0.9.0-beta.0"
+}
