@@ -24,7 +24,7 @@ var app = {
 
     //Application Constructor
     initialize: function() {
-        this.bindEvents();
+        app.bindEvents();
     },
     
     //Bind Event Listeners
@@ -32,18 +32,18 @@ var app = {
     //Bind any events that are required on startup. 
     //Common events are: 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-		document.addEventListener('deviceready', this.onDeviceReady, false);
+		document.addEventListener('deviceready', app.onDeviceReady, false);
     },
     
     //Device Ready Event Handler
     onDeviceReady: function() {
-        this.recievedEvent('deviceready');
+        app.recievedEvent('deviceready');
     },
     
     //Function Run on Device Ready
     recievedEvent: function(id) {
         if(id == 'deviceready'){
-        	this.deviceReady();
+        	app.deviceReady();
         }
     },
     
@@ -75,10 +75,10 @@ var app = {
 		});
 		
 		//Initialize Map
-		this.initMap();
+		app.initMap();
 		
 		//Displays Map
-		this.displayMap();
+		app.displayMap();
 		
     },
     
@@ -147,13 +147,13 @@ var app = {
     	//backgroundGeolocation.stop(); 
 		
 		//Get Current Location	
-		navigator.geolocation.getCurrentPosition(this.onInitSuccess,this.onError);
+		navigator.geolocation.getCurrentPosition(app.onInitSuccess,app.onError);
 		
 		//Navigation Watch Options
 		var watchOptions = { enableHighAccuracy: true };
 
 		//Start Tracking Location	
-		watchID = navigator.geolocation.watchPosition(this.onSuccess,this.onError,watchOptions);
+		watchID = navigator.geolocation.watchPosition(app.onSuccess,app.onError,watchOptions);
 		
 	},
 	
@@ -173,10 +173,10 @@ var app = {
 		currentLocationRadius.setCenter(latlng);
 		
 		//Get Nearby Locations from Database based off Current Location
-		this.getNearbyLocations(null);
+		app.getNearbyLocations(null);
 		
 		//onSuccess Call
-		this.onSuccess(position);
+		app.onSuccess(position);
 		
 	},
 	
@@ -251,10 +251,10 @@ var app = {
 			type: 'GET',
 			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
 			//dataType: 'json',
-			//async: true,				
+			async: true,				
 			success: function(json) {
 				var locations = JSON.parse(json)
-				this.loadLocations(locations);
+				app.loadLocations(locations);
 			},
 			error: function(){
 				//console.log("AJAX Error Getting Locations");
@@ -400,7 +400,7 @@ var app = {
 			
 
 			//Create New Location Object
-			var location = new this.Location(json[i].id,json[i].name,json[i].short_desc,json[i].long_desc,json[i].img,json[i].lat,json[i].lng,json[i].radius);		
+			var location = new app.Location(json[i].id,json[i].name,json[i].short_desc,json[i].long_desc,json[i].img,json[i].lat,json[i].lng,json[i].radius);		
 			
 			//Push Location Object onto Array of Locations
 			locations.push(location);
@@ -465,11 +465,11 @@ var app = {
 		document.getElementById("details").innerHTML = '';
 		document.getElementById("deals").innerHTML = '';
 		map.removeMarkers();
-		this.getNearbyLocations(category);
+		app.getNearbyLocations(category);
 		map.refresh();
 		
 		//Get Current Location	
-		navigator.geolocation.getCurrentPosition(this.onSuccess,this.onError);
+		navigator.geolocation.getCurrentPosition(app.onSuccess,app.onError);
 	},
 	
 	//Display Map
