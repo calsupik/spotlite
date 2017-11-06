@@ -146,8 +146,8 @@ var app = {
 		//Turn Off Background Geolocation
     	//backgroundGeolocation.stop(); 
 		
-		//Get Current Location	
-		navigator.geolocation.getCurrentPosition(app.onInitSuccess,app.onError);
+		//Get Current Location on Init
+		navigator.geolocation.getCurrentPosition(app.onInit,app.onError);
 		
 		//Navigation Watch Options
 		var watchOptions = { enableHighAccuracy: true };
@@ -158,7 +158,7 @@ var app = {
 	},
 	
 	//onInitSuccess callback receives position object and updates position on map
-	onInitSuccess: function(position) {
+	onInit: function(position) {
 		
 		//Sets Current LatLng Variable
 		var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -172,11 +172,13 @@ var app = {
 		//Set currentLocationRadius Position
 		currentLocationRadius.setCenter(latlng);
 		
-		//Get Nearby Locations from Database based off Current Location
-		app.getNearbyLocations(null);
-		
 		//onSuccess Call
-		app.onSuccess(position);
+		function onSuccessCallback(){
+			app.onSuccess(position);
+		}
+
+		//Get Nearby Locations from Database based off Current Location
+		app.getNearbyLocations(null,onSuccessCallback);
 		
 	},
 	
@@ -240,7 +242,7 @@ var app = {
 	},
 	
 	//Gets Nearby Locations from Database
-    getNearbyLocations: function(category){		
+    getNearbyLocations: function(category, onSuccessCallback){		
 		
 		var currentLat = currentLocation.getCenter().lat();
 		var currentLng = currentLocation.getCenter().lng();
@@ -250,11 +252,13 @@ var app = {
 			url: databaseString,
 			type: 'GET',
 			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
-			//dataType: 'json',
-			async: true,				
+			//dataType: 'json',			
 			success: function(json) {
 				var locations = JSON.parse(json)
 				app.loadLocations(locations);
+				if(onSuccessCallback){
+					onSuccessCallback();
+				}
 			},
 			error: function(){
 				//console.log("AJAX Error Getting Locations");
