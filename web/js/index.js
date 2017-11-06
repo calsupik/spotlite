@@ -485,6 +485,6 @@ var app = {
 		document.getElementById("map").style.visibility = "hidden";
 	}
 	
-}();
+};
 
 app.initialize();
