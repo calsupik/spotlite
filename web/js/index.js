@@ -50,7 +50,8 @@ var app = {
     //Device Ready Function
     deviceReady: function() {
 		
-		//Listen for Notification Click			
+		//Listen for Notification Click
+		/*		
 		cordova.plugins.notification.local.on("click", function (notification, state) {			
 			var locationID = "#locationDeal" + notification.id;
 					
@@ -61,6 +62,7 @@ var app = {
 				
 			}
 		});
+		*/
 		
 		//Top Display Buttons Click Function
 		$(".display a").on("click", function(){
@@ -141,7 +143,7 @@ var app = {
 		});
  
 		//Turn On Background Geolocation
-		backgroundGeolocation.start();
+		//backgroundGeolocation.start();
 		
 		//Turn Off Background Geolocation
     	//backgroundGeolocation.stop(); 
@@ -231,7 +233,7 @@ var app = {
 		
 		//Sends Notifications
 		for(var i=0;i<notifications.length;i++){
-			cordova.plugins.notification.local.schedule(notifications[i]);	
+			//cordova.plugins.notification.local.schedule(notifications[i]);	
 		}	
 					
 	},
