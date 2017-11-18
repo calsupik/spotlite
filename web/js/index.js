@@ -436,7 +436,7 @@ var app = {
 		this.marker = map.addMarker({
 				lat: this.lat,
 				lng: this.lng,
-				clickable: false,
+				clickable: true,
 				opacity: 1.0
 		});
 		
