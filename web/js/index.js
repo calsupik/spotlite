@@ -1,8 +1,7 @@
 /* Custom JavaScript */
 
 //Database Location
-var databaseString = 'https://spot-lite.herokuapp.com/getlocations';
-var urlString = 'https://spot-lite.herokuapp.com';
+var databaseUrl = 'https://spot-lite.herokuapp.com';
 
 //Locations Array
 var locations = [];	
@@ -251,7 +250,7 @@ var app = {
 		var distance = 100000;
 		
 		jQuery.ajax({
-			url: databaseString,
+			url: databaseUrl + '/getlocations',
 			type: 'GET',
 			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
 			//dataType: 'json',			
