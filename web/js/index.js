@@ -437,7 +437,7 @@ var app = {
 				lat: this.lat,
 				lng: this.lng,
 				clickable: false,
-				opacity: 0.5
+				opacity: 1.0
 		});
 		
 		this.marker.addListener('click', function() {
@@ -453,14 +453,14 @@ var app = {
 		
 		this.setInside = function(){
 			this.inside = true;
-			this.marker.setClickable(true);
-			this.marker.setOpacity(1.0);
+			//this.marker.setClickable(true);
+			//this.marker.setOpacity(1.0);
 		};
 		
 		this.setOutside = function(){
 			this.inside = false;
-			this.marker.setClickable(false);
-			this.marker.setOpacity(0.5);
+			//this.marker.setClickable(false);
+			//this.marker.setOpacity(0.5);
 		};	
 		
 	},
