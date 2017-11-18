@@ -2,7 +2,7 @@
 
 //Database Location
 var databaseString = 'https://spot-lite.herokuapp.com/getlocations';
-var urlString = 'https://spot-lite.herokuapp.com/';
+var urlString = 'https://spot-lite.herokuapp.com';
 
 //Locations Array
 var locations = [];	
@@ -285,13 +285,15 @@ var app = {
 			//Creates Location in List
 			list+= 
 			`<div class="col-md-4 col-sm-6 locations-item text-center">
-				<a id="location${json[i].id}" href="#locationDetail${i}" class="locations-link" data-toggle="modal">
+				<a id="location${json[i].id}" href="#locationDetail${i}" class="locations-link" data-toggle="modal">`
+					/*
 					<div class="locations-hover">
 						<div class="locations-hover-content">
 						</div>
 					</div>
-					<img src="${urlString}img/${json[i].img}"  class="img-responsive img-rounded" alt="">
-					<div class="locations-caption">
+					<img src="${urlString}/img/${json[i].img}"  class="img-responsive img-rounded" alt="">
+					*/
+					`<div class="locations-caption">
 						<h4>${json[i].name}</h4>
 						<p class="text-muted">${json[i].short_desc}</p>
 					</div>
@@ -315,9 +317,9 @@ var app = {
 									<div class="col-lg-8 col-lg-offset-2">
 										<div class="modal-body">
 											<h2>${json[i].name}</h2>
-											<p class="item-intro text-muted">${json[i].short_desc}</p>
-											<img class="img-responsive" src="${urlString}img/${json[i].img}" alt="">
-											</br>
+											<p class="item-intro text-muted">${json[i].short_desc}</p>`
+											//<img class="img-responsive" src="${urlString}/img/${json[i].img}" alt="">
+											`</br>
 											<p>${json[i].long_desc}</p>
 											<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Details</button>
 										</div>
@@ -348,9 +350,9 @@ var app = {
 									<div class="col-lg-8 col-lg-offset-2">
 										<div class="modal-body">
 											<h2>${json[i].name}</h2>
-											<p class="item-intro text-muted">${json[i].short_desc}</p>
-											<img class="img-responsive" src="${urlString}img/${json[i].img}" alt="">
-											</br>
+											<p class="item-intro text-muted">${json[i].short_desc}</p>`
+											//<img class="img-responsive" src="${urlString}img/${json[i].img}" alt="">
+											`</br>
 											<p>${json[i].deal}</p>
 											</br>
 											<button type="button" class="btn btn-success" href="#locationCheckIn${i}" class="locations-link" data-toggle="modal" data-dismiss="modal"><i class="fa fa-check"></i> Check In</button> 
