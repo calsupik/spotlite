@@ -304,13 +304,14 @@ var app = {
 
 		var details = '';
 
-		console.log(data);
-
 		for(var i=0;i<data.length;i++){
 
-			var location = app.loadLocation(data[i]);
+			//Load Location
+			//var location = app.loadLocation(data[i]);
+			var location = new app.Location(data[i].id,data[i].name,data[i].short_desc,data[i].long_desc,data[i].img,data[i].lat,data[i].lng,data[i].radius);	
 			
-			console.log(location);
+			//Push Location onto Array of Locations
+			locations.push(location);
 
 			//Creates Location in List
 			list+= 
@@ -352,13 +353,6 @@ var app = {
 					</div>
 				</div>
 			</div>`;
-			
-
-			//Create New Location Object
-			//var location = new app.Location(json[i].id,json[i].name,json[i].short_desc,json[i].long_desc,json[i].img,json[i].lat,json[i].lng,json[i].radius);		
-			
-			//Push Location Object onto Array of Locations
-			//locations.push(location);
 		}		
 				
 		list += '</div></div>';
@@ -409,7 +403,6 @@ var app = {
 		return location;
 	},
 	
-	/* 
 	//Location Object
 	Location: function(id,name,short_desc,long_desc,img,lat,lng,radius){
 		this.id = id;
@@ -453,7 +446,6 @@ var app = {
 		};	
 		
 	},
-	*/
 	
 	//Filter Locations
 	filter: function(category){
