@@ -15,6 +15,9 @@ var currentLocation = null;
 //Current Location Radius
 var currentLocationRadius = null;
 
+//Nearby Locations Distance
+var nearbyLocationsDistance = 100000;
+
 //Navigation Watch ID	
 var watchID = null;
 
@@ -52,9 +55,9 @@ var app = {
 		//Listen for Notification Click
 		/*		
 		cordova.plugins.notification.local.on("click", function (notification, state) {			
-			var locationID = "#locationDeal" + notification.id;
+			var locationID = "#locationDetail" + notification.id;
 					
-			if($("#deals").html()){
+			if($("#details").html()){
 				
 				//Show specific location details				
 				$(locationID).click();
@@ -247,13 +250,37 @@ var app = {
 		
 		var currentLat = currentLocation.getCenter().lat();
 		var currentLng = currentLocation.getCenter().lng();
-		var distance = 100000;
+		var distance = nearbyLocationsDistance;
 		
+		var request = new XMLHttpRequest();
+		request.open('GET', databaseUrl + '/getlocations', true);
+
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400) {
+			// Success!
+			var data = JSON.parse(request.responseText);
+			console.log(data);
+		  } else {
+			// We reached our target server, but it returned an error
+			console.log('error')
+		  }
+		};
+		
+		request.onerror = function() {
+		  // There was a connection error of some sort
+		  console.log('error')
+		};
+		
+		request.send();
+
+		/*
 		jQuery.ajax({
 			url: databaseUrl + '/getlocations',
 			type: 'GET',
 			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
-			//dataType: 'json',			
+			dataType: 'jsonp',	
+			async:true,
+            crossDomain:true,		
 			success: function(json) {
 				var locations = JSON.parse(json)
 				app.loadLocations(locations);
@@ -264,30 +291,31 @@ var app = {
 			error: function(){
 				//console.log("AJAX Error Getting Locations");
 			}
-		});		
+		});	
+		*/	
 		
 	},
 	
-	//Creates Location Objects and pushes them into the Locations Array
-	loadLocations: function(json){
+	//Creates HTML for Locations List and Locations Details
+	loadLocations: function(data){
 		
 		locations = [];
 		
 		var list = '<div class="container"><div class="row">';
 
 		var details = '';
-		
-		var deals = '';
-		
-		for(var i=0;i<json.length;i++){
+
+		for(var i=0;i<data.length;i++){
+
+			var location = app.loadLocation(data[i]);
 			
 			//Creates Location in List
 			list+= 
 			`<div class="col-md-4 col-sm-6 locations-item text-center">
-				<a id="location${json[i].id}" href="#locationDetail${i}" class="locations-link" data-toggle="modal">
+				<a id="location${location.id}" href="#locationDetail${i}" class="locations-link" data-toggle="modal">
 					<div class="locations-caption">
-						<h4>${json[i].name}</h4>
-						<p class="text-muted">${json[i].short_desc}</p>
+						<h4>${location.name}</h4>
+						<p class="text-muted">${location.short_desc}</p>
 					</div>
 				</a>
 			</div>`;
@@ -308,78 +336,11 @@ var app = {
 								<div class="row">
 									<div class="col-lg-8 col-lg-offset-2">
 										<div class="modal-body">
-											<h2>${json[i].name}</h2>
-											<p class="item-intro text-muted">${json[i].short_desc}</p>
+											<h2>${location.name}</h2>
+											<p class="item-intro text-muted">${location.short_desc}</p>
 											</br>
-											<p>${json[i].long_desc}</p>
+											<p>${location.long_desc}</p>
 											<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Details</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>`;
-			
-			//Creates Location Deals Popup Modal
-			deals +=
-			`<a id="locationDeal${json[i].id}" href="#locationDealDetail${i}" class="locations-link" data-toggle="modal"></a>
-			
-			<div class="locations-modal modal fade text-center" id="locationDealDetail${i}" tabindex="-1" role="dialog" aria-hidden="true" style="visibility:visible">
-				<div class="vertical-alignment-helper">
-					<div class="modal-dialog vertical-align-center">
-						<div class="modal-content">
-							<div class="close-modal" data-dismiss="modal">
-								<div class="lr">
-									<div class="rl">
-									</div>
-								</div>
-							</div>
-							<div class="container">
-								<div class="row">
-									<div class="col-lg-8 col-lg-offset-2">
-										<div class="modal-body">
-											<h2>${json[i].name}</h2>
-											<p class="item-intro text-muted">${json[i].short_desc}</p>
-											</br>
-											<p>${json[i].deal}</p>
-											</br>
-											<button type="button" class="btn btn-success" href="#locationCheckIn${i}" class="locations-link" data-toggle="modal" data-dismiss="modal"><i class="fa fa-check"></i> Check In</button> 
-											<button type="button" class="btn btn-warning" class="locations-link" data-toggle="modal" data-dismiss="modal"><i class="fa fa-times"></i> Keep Moving</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="locations-modal modal fade text-center" id="locationCheckIn${i}" tabindex="-1" role="dialog" aria-hidden="true" style="visibility:visible" >
-				<div class="vertical-alignment-helper">
-					<div class="modal-dialog vertical-align-center">
-						<div class="modal-content">
-							<div class="close-modal" data-dismiss="modal">
-								<div class="lr">
-									<div class="rl">
-									</div>
-								</div>
-							</div>
-							<div class="container">
-								<div class="row">
-									<div class="col-lg-8 col-lg-offset-2">
-										<div class="modal-body">
-											<h2>${json[i].name}</h2>
-											</br>
-											<p><i class="fa fa-check-circle-o text-success fa-5x"></i></p>
-											</br>
-											<p>You are checked in!</p>
-											</br>
-											<p>Please redeem for the following deal:</p>
-											<p>${json[i].deal}</p>
-											</br>
-											<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
 										</div>
 									</div>
 								</div>
@@ -391,21 +352,61 @@ var app = {
 			
 
 			//Create New Location Object
-			var location = new app.Location(json[i].id,json[i].name,json[i].short_desc,json[i].long_desc,json[i].img,json[i].lat,json[i].lng,json[i].radius);		
+			//var location = new app.Location(json[i].id,json[i].name,json[i].short_desc,json[i].long_desc,json[i].img,json[i].lat,json[i].lng,json[i].radius);		
 			
 			//Push Location Object onto Array of Locations
-			locations.push(location);
-						
+			//locations.push(location);
 		}		
 				
 		list += '</div></div>';
 					
 		document.getElementById("locations").innerHTML = list;
 		document.getElementById("details").innerHTML = details;
-		document.getElementById("deals").innerHTML = deals;
 		
 	},
+
+	//Load Individual Locations
+	loadLocation: function(data){
+		var location = data;
+
+		location.inside = false;
+		
+		location.marker = map.addMarker({
+				lat: this.lat,
+				lng: this.lng,
+				clickable: true,
+				opacity: 1.0
+		});
+		
+		location.marker.addListener('click', function() {
+			var locationID = "#locationDetail" + location.id;
+					
+			if($("#details").html()){
+				
+				//Show specific location details				
+				$(locationID).click();
+				
+			}
+		});
+		
+		location.setInside = function(){
+			this.inside = true;
+			//this.marker.setClickable(true);
+			//this.marker.setOpacity(1.0);
+		};
+		
+		location.setOutside = function(){
+			this.inside = false;
+			//this.marker.setClickable(false);
+			//this.marker.setOpacity(0.5);
+		};	
+
+		locations.push(location);
+
+		return location;
+	},
 	
+	/* 
 	//Location Object
 	Location: function(id,name,short_desc,long_desc,img,lat,lng,radius){
 		this.id = id;
@@ -426,9 +427,9 @@ var app = {
 		});
 		
 		this.marker.addListener('click', function() {
-			var locationID = "#locationDeal" + id;
+			var locationID = "#locationDetail" + id;
 					
-			if($("#deals").html()){
+			if($("#details").html()){
 				
 				//Show specific location details				
 				$(locationID).click();
@@ -449,12 +450,12 @@ var app = {
 		};	
 		
 	},
+	*/
 	
 	//Filter Locations
 	filter: function(category){
 		document.getElementById("locations").innerHTML = '';
 		document.getElementById("details").innerHTML = '';
-		document.getElementById("deals").innerHTML = '';
 		map.removeMarkers();
 		app.getNearbyLocations(category);
 		map.refresh();
