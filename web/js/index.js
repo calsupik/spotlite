@@ -249,34 +249,35 @@ var app = {
 		var currentLng = currentLocation.getCenter().lng();
 		var distance = locationsDistance;
 		
-		/*
 		var request = new XMLHttpRequest();
 		request.open('GET', databaseUrl + '/getlocations', true);
 
 		request.onload = function() {
 		  if (request.status >= 200 && request.status < 400) {
-			// Success!
-			var data = JSON.parse(request.responseText);
-			console.log(data);
+			var locations = JSON.parse(request.responseText)
+			app.loadLocations(locations);
+			if(onSuccessCallback){
+				onSuccessCallback();
+			}
 		  } else {
-			// We reached our target server, but it returned an error
-			console.log('error')
+			//Error
+			//console.log('Request Error')
 		  }
 		};
 		
 		request.onerror = function() {
-		  // There was a connection error of some sort
-		  console.log('error')
+		  //Connection Error
+		  //console.log('Connection Error')
 		};
 		
 		request.send();
-		*/
 
+		/*		
 		jQuery.ajax({
 			url: databaseUrl + '/getlocations',
 			type: 'GET',
 			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
-			dataType: 'jsonp',	
+			dataType: 'json',	
 			async:true,
             crossDomain:true,		
 			success: function(json) {
@@ -287,9 +288,10 @@ var app = {
 				}
 			},
 			error: function(){
-				//console.log("AJAX Error Getting Locations");
+				//console.log("Error Getting Locations");
 			}
-		});	
+		});
+		*/
 		
 	},
 	
@@ -302,10 +304,14 @@ var app = {
 
 		var details = '';
 
+		console.log(data);
+
 		for(var i=0;i<data.length;i++){
 
 			var location = app.loadLocation(data[i]);
 			
+			console.log(location);
+
 			//Creates Location in List
 			list+= 
 			`<div class="col-md-4 col-sm-6 locations-item text-center">
