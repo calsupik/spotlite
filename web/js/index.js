@@ -376,7 +376,7 @@ var app = {
 		});
 		
 		location.marker.addListener('click', function() {
-			var locationID = "#locationDetail" + location.id;
+			var locationID = "#location" + location.id;
 					
 			if($("#details").html()){
 				
@@ -423,7 +423,7 @@ var app = {
 		});
 		
 		this.marker.addListener('click', function() {
-			var locationID = "#locationDetail" + id;
+			var locationID = "#location" + id;
 					
 			if($("#details").html()){
 				
