@@ -16,7 +16,7 @@ var currentLocation = null;
 var currentLocationRadius = null;
 
 //Nearby Locations Distance
-var nearbyLocationsDistance = 100000;
+var locationsDistance = 100000;
 
 //Navigation Watch ID	
 var watchID = null;
@@ -179,7 +179,7 @@ var app = {
 		}
 
 		//Get Nearby Locations from Database based off Current Location
-		app.getNearbyLocations(null,onSuccessCallback);
+		app.getLocations(null,onSuccessCallback);
 		
 	},
 	
@@ -243,11 +243,11 @@ var app = {
 	},
 	
 	//Gets Nearby Locations from Database
-    getNearbyLocations: function(category, onSuccessCallback){		
+    getLocations: function(category, onSuccessCallback){		
 		
 		var currentLat = currentLocation.getCenter().lat();
 		var currentLng = currentLocation.getCenter().lng();
-		var distance = nearbyLocationsDistance;
+		var distance = locationsDistance;
 		
 		/*
 		var request = new XMLHttpRequest();
@@ -454,7 +454,7 @@ var app = {
 		document.getElementById("locations").innerHTML = '';
 		document.getElementById("details").innerHTML = '';
 		map.removeMarkers();
-		app.getNearbyLocations(category);
+		app.getLocations(category);
 		map.refresh();
 		
 		//Get Current Location	
