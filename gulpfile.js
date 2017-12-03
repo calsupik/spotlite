@@ -1,3 +1,4 @@
+//Required Packages
 var gulp = require('gulp');
 var replace = require('gulp-replace');
  
@@ -35,7 +36,8 @@ gulp.task('prod-js', function() {
     .pipe(gulp.dest('./web/js/'))
 });
 
-
+//Run dev tasks
 gulp.task('prep-dev', [ 'dev-html', 'dev-js' ]);
 
+//Run prod tasks
 gulp.task('prep-prod', [ 'prod-html', 'prod-js' ]);

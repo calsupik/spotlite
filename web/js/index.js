@@ -30,9 +30,6 @@ var app = {
     },
     
     //Bind Event Listeners
-    //
-    //Bind any events that are required on startup. 
-    //Common events are: 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
 		document.addEventListener('deviceready', app.onDeviceReady, false);
     },
@@ -252,6 +249,7 @@ var app = {
 		var currentLng = currentLocation.getCenter().lng();
 		var distance = nearbyLocationsDistance;
 		
+		/*
 		var request = new XMLHttpRequest();
 		request.open('GET', databaseUrl + '/getlocations', true);
 
@@ -272,8 +270,8 @@ var app = {
 		};
 		
 		request.send();
+		*/
 
-		/*
 		jQuery.ajax({
 			url: databaseUrl + '/getlocations',
 			type: 'GET',
@@ -292,7 +290,6 @@ var app = {
 				//console.log("AJAX Error Getting Locations");
 			}
 		});	
-		*/	
 		
 	},
 	
