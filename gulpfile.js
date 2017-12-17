@@ -1,7 +1,16 @@
 //Required Packages
-var gulp = require('gulp');
-var replace = require('gulp-replace');
- 
+const gulp = require('gulp')
+const replace = require('gulp-replace')
+const babel = require('gulp-babel')
+const plumber = require('gulp-plumber')
+
+gulp.task('backend', function() {
+  return gulp.src("./web/src/**/*.js")
+    .pipe(plumber())
+    .pipe(babel())
+    .pipe(gulp.dest("./web/dist"))
+})
+
 //Global Files
 var indexHTML = './www/index.html';
 var indexJS = './web/js/index.js';
@@ -37,7 +46,7 @@ gulp.task('prod-js', function() {
 });
 
 //Run dev tasks
-gulp.task('prep-dev', [ 'dev-html', 'dev-js' ]);
+gulp.task('prep-dev', [ 'backend', 'dev-html', 'dev-js' ])
 
 //Run prod tasks
-gulp.task('prep-prod', [ 'prod-html', 'prod-js' ]);
+gulp.task('prep-prod', [ 'backend', 'prod-html', 'prod-js' ])
