@@ -1,7 +1,7 @@
 /* Custom JavaScript */
 
 //Database Location
-var databaseUrl = 'https://spot-lite.herokuapp.com';
+var databaseUrl = 'https://spot-lite-dev.herokuapp.com';
 
 //Locations Array
 var locations = [];	
