@@ -57,7 +57,7 @@ async function startApp() {
     })
 
     //static files
-    // app.use('/public', express.static(path.join(__dirname, '..', '/public')))
+    app.use(express.static(path.join(__dirname, '..', '..', '/public')))
 
     // initialize routes object to be used to bind express routes
     const routePath = path.join(__dirname, '..', 'routes')
