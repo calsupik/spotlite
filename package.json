@@ -6,6 +6,12 @@
     "type": "git",
     "url": "https://github.com/calsupik/spotlite"
   },
+  "scripts": {
+    "dev": "nodemon --exec 'nf start'",
+    "start": "node web/forever",
+    "postinstall": "gulp build",
+    "test": "mocha --compilers js:babel-core/register --recursive './src/**/*.spec.js'"
+  },
   "author": "Cal Supik",
   "license": "MIT",
   "keywords": [
@@ -43,6 +49,10 @@
       "cordova-plugin-whitelist": {}
     }
   },
+  "devDependencies": {
+    "foreman": "^2.0.0",
+    "mocha": "^3.1.1"
+  },
   "dependencies": {
     "cordova-ios": "~4.1.1",
     "cordova-plugin-battery-status": "~1.1.1",
@@ -64,6 +74,22 @@
     "cordova-plugin-splashscreen": "~3.2.1",
     "cordova-plugin-statusbar": "~2.1.2",
     "cordova-plugin-vibration": "~2.1.0",
-    "cordova-plugin-whitelist": "~1.2.1"
+    "cordova-plugin-whitelist": "~1.2.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.12.0",
+    "bunyan": "1.5.1",
+    "express": "^4.15.2",
+    "forever-monitor": "^1.7.1",
+    "gulp": "latest",
+    "gulp-babel": "latest",
+    "gulp-plumber": "^1.1.0",
+    "moment": "^2.18.1",
+    "pg": "^6.1.5",
+    "pg-query-stream": "^1.0.0",
+    "pug": "^2.0.0-rc.3",
+    "throng": "^4.0.0"
   }
 }
