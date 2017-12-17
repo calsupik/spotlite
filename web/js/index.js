@@ -1,8 +1,7 @@
 /* Custom JavaScript */
 
 //Database Location
-var databaseString = 'https://spot-lite.herokuapp.com/getlocations';
-var urlString = 'https://spot-lite.herokuapp.com/';
+var databaseUrl = 'https://spot-lite.herokuapp.com';
 
 //Locations Array
 var locations = [];	
@@ -16,6 +15,9 @@ var currentLocation = null;
 //Current Location Radius
 var currentLocationRadius = null;
 
+//Nearby Locations Distance
+var locationsDistance = 100000;
+
 //Navigation Watch ID	
 var watchID = null;
 
@@ -28,9 +30,6 @@ var app = {
     },
     
     //Bind Event Listeners
-    //
-    //Bind any events that are required on startup. 
-    //Common events are: 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
 		document.addEventListener('deviceready', app.onDeviceReady, false);
     },
@@ -53,9 +52,9 @@ var app = {
 		//Listen for Notification Click
 		/*		
 		cordova.plugins.notification.local.on("click", function (notification, state) {			
-			var locationID = "#locationDeal" + notification.id;
+			var locationID = "#locationDetail" + notification.id;
 					
-			if($("#deals").html()){
+			if($("#details").html()){
 				
 				//Show specific location details				
 				$(locationID).click();
@@ -180,7 +179,7 @@ var app = {
 		}
 
 		//Get Nearby Locations from Database based off Current Location
-		app.getNearbyLocations(null,onSuccessCallback);
+		app.getLocations(null,onSuccessCallback);
 		
 	},
 	
@@ -244,17 +243,43 @@ var app = {
 	},
 	
 	//Gets Nearby Locations from Database
-    getNearbyLocations: function(category, onSuccessCallback){		
+    getLocations: function(category, onSuccessCallback){		
 		
 		var currentLat = currentLocation.getCenter().lat();
 		var currentLng = currentLocation.getCenter().lng();
-		var distance = 100000;
+		var distance = locationsDistance;
 		
+		var request = new XMLHttpRequest();
+		request.open('GET', databaseUrl + '/getlocations', true);
+
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400) {
+			var locations = JSON.parse(request.responseText)
+			app.loadLocations(locations);
+			if(onSuccessCallback){
+				onSuccessCallback();
+			}
+		  } else {
+			//Error
+			//console.log('Request Error')
+		  }
+		};
+		
+		request.onerror = function() {
+		  //Connection Error
+		  //console.log('Connection Error')
+		};
+		
+		request.send();
+
+		/*		
 		jQuery.ajax({
-			url: databaseString,
+			url: databaseUrl + '/getlocations',
 			type: 'GET',
 			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
-			//dataType: 'json',			
+			dataType: 'json',	
+			async:true,
+            crossDomain:true,		
 			success: function(json) {
 				var locations = JSON.parse(json)
 				app.loadLocations(locations);
@@ -263,162 +288,119 @@ var app = {
 				}
 			},
 			error: function(){
-				//console.log("AJAX Error Getting Locations");
+				//console.log("Error Getting Locations");
 			}
-		});		
+		});
+		*/
 		
 	},
 	
-	//Creates Location Objects and pushes them into the Locations Array
-	loadLocations: function(json){
+	//Creates HTML for Locations List and Locations Details
+	loadLocations: function(data){
 		
 		locations = [];
 		
-		var list = '<div class="container">'+
-						'<div class="row">';
+		var list = '<div class="container"><div class="row">';
 
 		var details = '';
-		
-		var deals = '';
-		
-		for(var i=0;i<json.length;i++){
+
+		for(var i=0;i<data.length;i++){
+
+			//Load Location
+			//var location = app.loadLocation(data[i]);
+			var location = new app.Location(data[i].id,data[i].name,data[i].short_desc,data[i].long_desc,data[i].img,data[i].lat,data[i].lng,data[i].radius);	
 			
+			//Push Location onto Array of Locations
+			locations.push(location);
+
 			//Creates Location in List
 			list+= 
-			
-			'<div class="col-md-4 col-sm-6 locations-item text-center">'+
-				
-				'<a id="location'+json[i].id+'" href="#locationDetail'+i+'" class="locations-link" data-toggle="modal">'+
-					/*
-					'<div class="locations-hover">'+
-						'<div class="locations-hover-content">'+
-						'</div>'+
-					'</div>'+
-					'<img src="'+urlString+'img/'+json[i].img+'"  class="img-responsive img-rounded" alt="">'+
-					*/
-					'<div class="locations-caption">'+
-						'<h4>'+json[i].name+'</h4>'+
-						'<p class="text-muted">'+json[i].short_desc+'</p>'+
-					'</div>'+
-				'</a>'+
-			'</div>';
+			`<div class="col-md-4 col-sm-6 locations-item text-center">
+				<a id="location${location.id}" href="#locationDetail${i}" class="locations-link" data-toggle="modal">
+					<div class="locations-caption">
+						<h4>${location.name}</h4>
+						<p class="text-muted">${location.short_desc}</p>
+					</div>
+				</a>
+			</div>`;
 			
 			//Creates Location Details Popup Modal
 			details +=
-			
-			'<div class="locations-modal modal fade text-center" id="locationDetail'+i+'" tabindex="-1" role="dialog" aria-hidden="true" style="visibility:visible" >'+
-				'<div class="vertical-alignment-helper">'+
-					'<div class="modal-dialog vertical-align-center">'+
-						'<div class="modal-content">'+
-							'<div class="close-modal" data-dismiss="modal">'+
-								'<div class="lr">'+
-									'<div class="rl">'+
-									'</div>'+
-								'</div>'+
-							'</div>'+
-							'<div class="container">'+
-								'<div class="row">'+
-									'<div class="col-lg-8 col-lg-offset-2">'+
-										'<div class="modal-body">'+
-											'<h2>'+json[i].name+'</h2>'+
-											'<p class="item-intro text-muted">'+json[i].short_desc+'</p>'+
-											//'<img class="img-responsive" src="'+urlString+'img/'+json[i].img+'" alt="">'+
-											'</br>'+
-											'<p>'+json[i].long_desc+'</p>'+
-											'<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Details</button>'+
-										'</div>'+
-									'</div>'+
-								'</div>'+
-							'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>'+
-			'</div>';
-			
-			//Creates Location Deals Popup Modal
-			deals +=
-			
-			'<a id="locationDeal'+json[i].id+'" href="#locationDealDetail'+i+'" class="locations-link" data-toggle="modal"></a>'+
-			
-			'<div class="locations-modal modal fade text-center" id="locationDealDetail'+i+'" tabindex="-1" role="dialog" aria-hidden="true" style="visibility:visible" >'+
-				'<div class="vertical-alignment-helper">'+
-					'<div class="modal-dialog vertical-align-center">'+
-						'<div class="modal-content">'+
-							'<div class="close-modal" data-dismiss="modal">'+
-								'<div class="lr">'+
-									'<div class="rl">'+
-									'</div>'+
-								'</div>'+
-							'</div>'+
-							'<div class="container">'+
-								'<div class="row">'+
-									'<div class="col-lg-8 col-lg-offset-2">'+
-										'<div class="modal-body">'+
-											'<h2>'+json[i].name+'</h2>'+
-											'<p class="item-intro text-muted">'+json[i].short_desc+'</p>'+
-											//'<img class="img-responsive" src="'+urlString+'img/'+json[i].img+'" alt="">'+
-											'</br>'+
-											'<p>'+json[i].deal+'</p>'+
-											'</br>'+
-											'<button type="button" class="btn btn-success" href="#locationCheckIn'+i+'" class="locations-link" data-toggle="modal" data-dismiss="modal"><i class="fa fa-check"></i> Check In</button> '+
-											'<button type="button" class="btn btn-warning" class="locations-link" data-toggle="modal" data-dismiss="modal"><i class="fa fa-times"></i> Keep Moving</button>'+
-										'</div>'+
-									'</div>'+
-								'</div>'+
-							'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>'+
-			'</div>'+
-			
-			'<div class="locations-modal modal fade text-center" id="locationCheckIn'+i+'" tabindex="-1" role="dialog" aria-hidden="true" style="visibility:visible" >'+
-				'<div class="vertical-alignment-helper">'+
-					'<div class="modal-dialog vertical-align-center">'+
-						'<div class="modal-content">'+
-							'<div class="close-modal" data-dismiss="modal">'+
-								'<div class="lr">'+
-									'<div class="rl">'+
-									'</div>'+
-								'</div>'+
-							'</div>'+
-							'<div class="container">'+
-								'<div class="row">'+
-									'<div class="col-lg-8 col-lg-offset-2">'+
-										'<div class="modal-body">'+
-											'<h2>'+json[i].name+'</h2>'+
-											'</br>'+
-											'<p><i class="fa fa-check-circle-o text-success fa-5x"></i></p>'+
-											'</br>'+
-											'<p>You are checked in!</p>'+
-											'</br>'+
-											'<p>Please redeem for the following deal:</p>'+
-											'<p>'+json[i].deal+'</p>'+
-											'</br>'+
-											'<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>'+
-										'</div>'+
-									'</div>'+
-								'</div>'+
-							'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>'+
-			'</div>';
-			
-
-			//Create New Location Object
-			var location = new app.Location(json[i].id,json[i].name,json[i].short_desc,json[i].long_desc,json[i].img,json[i].lat,json[i].lng,json[i].radius);		
-			
-			//Push Location Object onto Array of Locations
-			locations.push(location);
-						
+			`<div class="locations-modal modal fade text-center" id="locationDetail${i}" tabindex="-1" role="dialog" aria-hidden="true" style="visibility:visible">
+				<div class="vertical-alignment-helper">
+					<div class="modal-dialog vertical-align-center">
+						<div class="modal-content">
+							<div class="close-modal" data-dismiss="modal">
+								<div class="lr">
+									<div class="rl">
+									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8 col-lg-offset-2">
+										<div class="modal-body">
+											<h2>${location.name}</h2>
+											<p class="item-intro text-muted">${location.short_desc}</p>
+											</br>
+											<p>${location.long_desc}</p>
+											<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Details</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>`;
 		}		
 				
 		list += '</div></div>';
 					
 		document.getElementById("locations").innerHTML = list;
 		document.getElementById("details").innerHTML = details;
-		document.getElementById("deals").innerHTML = deals;
 		
+	},
+
+	//Load Individual Locations
+	loadLocation: function(data){
+		var location = data;
+
+		location.inside = false;
+		
+		location.marker = map.addMarker({
+				lat: this.lat,
+				lng: this.lng,
+				clickable: true,
+				opacity: 1.0
+		});
+		
+		location.marker.addListener('click', function() {
+			var locationID = "#location" + location.id;
+					
+			if($("#details").html()){
+				
+				//Show specific location details				
+				$(locationID).click();
+				
+			}
+		});
+		
+		location.setInside = function(){
+			this.inside = true;
+			//this.marker.setClickable(true);
+			//this.marker.setOpacity(1.0);
+		};
+		
+		location.setOutside = function(){
+			this.inside = false;
+			//this.marker.setClickable(false);
+			//this.marker.setOpacity(0.5);
+		};	
+
+		locations.push(location);
+
+		return location;
 	},
 	
 	//Location Object
@@ -436,14 +418,14 @@ var app = {
 		this.marker = map.addMarker({
 				lat: this.lat,
 				lng: this.lng,
-				clickable: false,
-				opacity: 0.5
+				clickable: true,
+				opacity: 1.0
 		});
 		
 		this.marker.addListener('click', function() {
-			var locationID = "#locationDeal" + id;
+			var locationID = "#location" + id;
 					
-			if($("#deals").html()){
+			if($("#details").html()){
 				
 				//Show specific location details				
 				$(locationID).click();
@@ -453,14 +435,14 @@ var app = {
 		
 		this.setInside = function(){
 			this.inside = true;
-			this.marker.setClickable(true);
-			this.marker.setOpacity(1.0);
+			//this.marker.setClickable(true);
+			//this.marker.setOpacity(1.0);
 		};
 		
 		this.setOutside = function(){
 			this.inside = false;
-			this.marker.setClickable(false);
-			this.marker.setOpacity(0.5);
+			//this.marker.setClickable(false);
+			//this.marker.setOpacity(0.5);
 		};	
 		
 	},
@@ -469,9 +451,8 @@ var app = {
 	filter: function(category){
 		document.getElementById("locations").innerHTML = '';
 		document.getElementById("details").innerHTML = '';
-		document.getElementById("deals").innerHTML = '';
 		map.removeMarkers();
-		app.getNearbyLocations(category);
+		app.getLocations(category);
 		map.refresh();
 		
 		//Get Current Location	

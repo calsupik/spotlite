@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon --exec 'nf start'",
     "migrate": "node web/dist/tasks/migrate",
-    "postinstall": "gulp build",
+    "postinstall": "gulp prep-prod",
     "start": "node web/dist/forever",
     "test": "mocha --compilers js:babel-core/register --recursive './src/**/*.spec.js'"
   },
@@ -64,7 +64,7 @@
     "cordova-plugin-device-motion": "~1.2.0",
     "cordova-plugin-device-orientation": "~1.0.2",
     "cordova-plugin-dialogs": "~1.2.0",
-    "cordova-plugin-file": "~4.1.1",
+    "cordova-plugin-file": "^4.3.3",
     "cordova-plugin-file-transfer": "~1.5.0",
     "cordova-plugin-geolocation": "~2.1.0",
     "cordova-plugin-globalization": "~1.0.3",
@@ -87,6 +87,7 @@
     "gulp": "latest",
     "gulp-babel": "latest",
     "gulp-plumber": "^1.1.0",
+    "gulp-replace": "^0.6.1",
     "moment": "^2.18.1",
     "pg": "^6.1.5",
     "pg-query-stream": "^1.0.0",
