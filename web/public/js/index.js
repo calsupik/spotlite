@@ -260,7 +260,7 @@ var app = {
 				onSuccessCallback();
 			}
 		  } else {
-			//Error
+			//Request Error
 			//console.log('Request Error')
 		  }
 		};
@@ -271,28 +271,6 @@ var app = {
 		};
 		
 		request.send();
-
-		/*		
-		jQuery.ajax({
-			url: databaseUrl + '/getlocations',
-			type: 'GET',
-			//data: {lat:currentLat,lng:currentLng,distance:distance,category:category},
-			dataType: 'json',	
-			async:true,
-            crossDomain:true,		
-			success: function(json) {
-				var locations = JSON.parse(json)
-				app.loadLocations(locations);
-				if(onSuccessCallback){
-					onSuccessCallback();
-				}
-			},
-			error: function(){
-				//console.log("Error Getting Locations");
-			}
-		});
-		*/
-		
 	},
 	
 	//Creates HTML for Locations List and Locations Details
@@ -307,11 +285,7 @@ var app = {
 		for(var i=0;i<data.length;i++){
 
 			//Load Location
-			//var location = app.loadLocation(data[i]);
-			var location = new app.Location(data[i].id,data[i].name,data[i].short_desc,data[i].long_desc,data[i].img,data[i].lat,data[i].lng,data[i].radius);	
-			
-			//Push Location onto Array of Locations
-			locations.push(location);
+			var location = app.loadLocation(data[i]);
 
 			//Creates Location in List
 			list+= 
@@ -369,8 +343,8 @@ var app = {
 		location.inside = false;
 		
 		location.marker = map.addMarker({
-				lat: this.lat,
-				lng: this.lng,
+				lat: location.lat,
+				lng: location.lng,
 				clickable: true,
 				opacity: 1.0
 		});
@@ -401,50 +375,6 @@ var app = {
 		locations.push(location);
 
 		return location;
-	},
-	
-	//Location Object
-	Location: function(id,name,short_desc,long_desc,img,lat,lng,radius){
-		this.id = id;
-		this.name = name;
-		this.short_desc = short_desc;
-		this.long_desc = long_desc;
-		this.img = img;
-		this.lat = lat;
-		this.lng = lng;
-		this.radius = parseFloat(radius);
-		this.inside = false;
-		
-		this.marker = map.addMarker({
-				lat: this.lat,
-				lng: this.lng,
-				clickable: true,
-				opacity: 1.0
-		});
-		
-		this.marker.addListener('click', function() {
-			var locationID = "#location" + id;
-					
-			if($("#details").html()){
-				
-				//Show specific location details				
-				$(locationID).click();
-				
-			}
-	  	});
-		
-		this.setInside = function(){
-			this.inside = true;
-			//this.marker.setClickable(true);
-			//this.marker.setOpacity(1.0);
-		};
-		
-		this.setOutside = function(){
-			this.inside = false;
-			//this.marker.setClickable(false);
-			//this.marker.setOpacity(0.5);
-		};	
-		
 	},
 	
 	//Filter Locations
