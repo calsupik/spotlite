@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "nodemon --exec 'nf start'",
-    "start": "node web/forever",
+    "migrate": "node web/dist/tasks/migrate",
     "postinstall": "gulp build",
+    "start": "node web/dist/forever",
     "test": "mocha --compilers js:babel-core/register --recursive './src/**/*.spec.js'"
   },
   "author": "Cal Supik",

@@ -47,7 +47,8 @@ async function startApp() {
     // app.use('/public', express.static(path.join(__dirname, '..', '/public')))
 
     // initialize routes object to be used to bind express routes
-    const aRoutes = fs.readdirSync('routes').filter(file => fs.lstatSync(path.join('routes', file)).isFile())
+    const routePath = path.join(__dirname, '..', 'routes')
+    const aRoutes = fs.readdirSync(routePath).filter(file => fs.lstatSync(path.join(routePath, file)).isFile())
     let oRoutes = {}
     aRoutes.forEach(r => oRoutes[r] = require(path.join('..', 'routes', r)))
 
