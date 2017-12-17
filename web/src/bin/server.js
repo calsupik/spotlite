@@ -43,6 +43,19 @@ async function startApp() {
     app.use(bodyParser.urlencoded({extended: true, limit: '1mb'}))
     app.use(bodyParser.json({limit: '1mb'}))
 
+    // Enable CORS for all routes
+    app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*")
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+      res.header("Access-Control-Max-Age", "600")
+
+      // Handles preflight request for CORS
+      if (req.method.toLowerCase() === 'options')
+        return res.sendStatus(200)
+
+      next()
+    })
+
     //static files
     // app.use('/public', express.static(path.join(__dirname, '..', '/public')))
 
