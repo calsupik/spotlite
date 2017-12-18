@@ -6,12 +6,15 @@ This is a PhoneGap application built to run in iOS.
 
 ```
 git clone https://github.com/calsupik/spotlite
+
 npm install
-npm run dev
+
+phonegap build ios
+
+gulp prep-dev
 ```
 
 ## Tests
 
 ```
-npm test
 ```

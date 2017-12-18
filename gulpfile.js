@@ -4,13 +4,6 @@ const replace = require('gulp-replace')
 const babel = require('gulp-babel')
 const plumber = require('gulp-plumber')
 
-gulp.task('backend', function() {
-  return gulp.src("./web/src/**/*.js")
-    .pipe(plumber())
-    .pipe(babel())
-    .pipe(gulp.dest("./web/dist"))
-})
-
 //Global Files
 var indexHTML = './www/index.html';
 var indexJS = './web/public/js/index.js';
@@ -50,3 +43,11 @@ gulp.task('prep-dev', [ 'backend', 'dev-html', 'dev-js' ])
 
 //Run prod tasks
 gulp.task('prep-prod', [ 'backend', 'prod-html', 'prod-js' ])
+
+//Run backend tasks
+gulp.task('backend', function() {
+  return gulp.src("./web/src/**/*.js")
+    .pipe(plumber())
+    .pipe(babel())
+    .pipe(gulp.dest("./web/dist"))
+})
