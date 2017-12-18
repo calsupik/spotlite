@@ -1,5 +1,6 @@
 /node_modules
 /platforms
+/plugins
 /vendor
 /dist
 /web/dist
