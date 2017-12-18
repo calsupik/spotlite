@@ -49,8 +49,7 @@ var app = {
     //Device Ready Function
     deviceReady: function() {
 		
-		//Listen for Notification Click
-		/*		
+		//Listen for Notification Click		
 		cordova.plugins.notification.local.on("click", function (notification, state) {			
 			var locationID = "#locationDetail" + notification.id;
 					
@@ -61,7 +60,6 @@ var app = {
 				
 			}
 		});
-		*/
 		
 		//Top Display Buttons Click Function
 		$(".display a").on("click", function(){
@@ -84,7 +82,7 @@ var app = {
     },
     
     //Initializes Map
-    initMap: function(){		
+    initMap: function(){
 		
 		//Initial Lat/Lng
 		var lat = 0; 
@@ -232,7 +230,7 @@ var app = {
 		
 		//Sends Notifications
 		for(var i=0;i<notifications.length;i++){
-			//cordova.plugins.notification.local.schedule(notifications[i]);	
+			cordova.plugins.notification.local.schedule(notifications[i]);	
 		}	
 					
 	},
@@ -243,8 +241,8 @@ var app = {
 	},
 	
 	//Gets Nearby Locations from Database
-    getLocations: function(category, onSuccessCallback){		
-		
+    getLocations: function(category, onSuccessCallback){
+
 		var currentLat = currentLocation.getCenter().lat();
 		var currentLng = currentLocation.getCenter().lng();
 		var distance = locationsDistance;
