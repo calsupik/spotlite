@@ -4,6 +4,10 @@ html{
 	/*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
 }
 
+.container {
+    width: auto !important;
+}
+
 .navbar {
 	min-height:0px;
 	border-width: 0 0 0 0px;

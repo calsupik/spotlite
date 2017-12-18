@@ -13,8 +13,3 @@ phonegap build ios
 
 gulp prep-dev
 ```
-
-## Tests
-
-```
-```
