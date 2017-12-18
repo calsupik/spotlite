@@ -140,7 +140,7 @@ var app = {
 		});
  
 		//Turn On Background Geolocation
-		//backgroundGeolocation.start();
+		backgroundGeolocation.start();
 		
 		//Turn Off Background Geolocation
     	//backgroundGeolocation.stop(); 
