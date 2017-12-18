@@ -171,13 +171,10 @@ var app = {
 		//Set currentLocationRadius Position
 		currentLocationRadius.setCenter(latlng);
 		
-		//onSuccess Call
-		function onSuccessCallback(){
-			app.onSuccess(position);
-		}
-
 		//Get Nearby Locations from Database based off Current Location
-		app.getLocations(null,onSuccessCallback);
+		app.getLocations(null, function(){
+			app.onSuccess(position);
+		});
 		
 	},
 	
@@ -226,7 +223,7 @@ var app = {
 			}else{
 			
 				//Sets location outside currentLocationRadius
-				location[i].inside = false;
+				locations[i].inside = false;
 				//location[i].marker.setClickable(false);
 				//location[i].marker.setOpacity(0.5);
 	
