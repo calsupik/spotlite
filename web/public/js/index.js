@@ -208,7 +208,9 @@ var app = {
 				}else{
 				
 					//Sets location inside currentLocationRadius
-					locations[i].setInside();			
+					locations[i].inside = true;
+					//locations[i].marker.setClickable(true);
+					//locations[i].marker.setOpacity(1.0);
 					
 					//Creates Notification Object
 					var notification = {
@@ -224,7 +226,10 @@ var app = {
 			}else{
 			
 				//Sets location outside currentLocationRadius
-				locations[i].setOutside();
+				location[i].inside = false;
+				//location[i].marker.setClickable(false);
+				//location[i].marker.setOpacity(0.5);
+	
 			}
 		}
 		
@@ -357,18 +362,6 @@ var app = {
 				
 			}
 		});
-		
-		location.setInside = function(){
-			this.inside = true;
-			//this.marker.setClickable(true);
-			//this.marker.setOpacity(1.0);
-		};
-		
-		location.setOutside = function(){
-			this.inside = false;
-			//this.marker.setClickable(false);
-			//this.marker.setOpacity(0.5);
-		};	
 
 		locations.push(location);
 
